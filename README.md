@@ -7,5 +7,9 @@ file formats I've reverse engineered.
 
 ### Savegames
 
+* [Amplitude (2016)](savegames/amp2016.hexpat)
+    * Requires decryption before this can be read (see [davesave](https://github.com/InvoxiPlayGames/davesave), Apollo Save Tool [PS3](https://bucanero.github.io/apollo-ps3/)/[PS4](https://bucanero.github.io/apollo-ps4/))
+    * References: **Original research and development**
 * [Rock Band 4](savegames/rb4.hexpat)
-* [Amplitude (2016)](savegames/rb4.hexpat)
+    * Requires decryption before this can be read (see [davesave](https://github.com/InvoxiPlayGames/davesave))
+    * References: **2015-09-01 Rock Band 4 map**, 2017-03-09 Rock Band VR PDB, original research and development
