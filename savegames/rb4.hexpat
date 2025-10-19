@@ -435,15 +435,47 @@ struct RBTrackSkinPersistentData {
   u8 rev_footer;
 };
 
+// Rivals crew data: Spotlight high scores
+struct SpotlightSongHighScoreInstrumentInfo {
+  bool mHasInfo;
+  u32 mInstrument;
+  u32 mHighScore;
+  u32 mStars;
+  u32 mDifficulty;
+  bool mBrutal;
+  Symbol mPlatformUID;
+  Symbol mGamertag;
+  Symbol mUnused;
+  Symbol mOnlineID;
+  u32 mSpotlightPercent;
+  bool mIsMine;
+};
+
+// Not an actual class; internally this is of <int, vector<SpotlightSongHighScoreInstrumentInfo>>
+struct RBClanSpotlightSongHighScore {
+  u32 mSongID;
+  u32 mHighScores_length;
+  SpotlightSongHighScoreInstrumentInfo mHighScores[mHighScores_length];
+};
+
 // Rivals crew data
-// TODO: Fill a lot of this in (hard to do now because there is no active season)
+// TODO: Figure out the unknowns (maybe they'll be obvious at the end of week/season)
 struct RBClanPersistentData {
   RevisionStream rev; // Revision 0x6
 
-  u32 mUnknown1[3];
+  u32 mUnknown1;
+  u32 mUnknown2;
+  u32 mUnknown3;
   u32 mTier; // 1 = Highest (Bloodstone), 6 = Lowest (Bronze)
   u32 mHighestTier;
-  u32 mUnknown2[7];
+  u32 mCachedSpotlightSongEventID;
+  u32 mSpotlightSongHighScores_length;
+  RBClanSpotlightSongHighScore mSpotlightSongHighScores[mSpotlightSongHighScores_length];
+  u32 mUnknown4;
+  u32 mSpotlightPercent;
+  u32 mCrewXPPercent;
+  u32 mLPPercent;
+  u32 mTotalPoints;
   
   u8 rev_footer;
 };
