@@ -46,6 +46,36 @@ struct HxGuid {
   u32 mData[4];
 };
 
+// Not actual classes/structures - ImHex doesn't support multi-dimensional arrays
+struct SongScores {
+  u32 mScore[4]; // per-difficulty
+};
+struct SongStars {
+  u8 mStars[4];
+};
+struct SongAccuracy {
+  u8 mAccuracy[4];
+};
+struct SongFullCombo {
+  u8 mFullCombo[4];
+};
+
+// High scores: General data
+struct SongPersistentData {
+  u32 song_id;
+  RevisionStream rev; // Revision 0x8
+  
+  u32 mSongID;
+  u32 mVersion;
+  DateTime mLastPlayed;
+  SongScores mScore[7]; // per-instrument
+  SongStars mStars[7];
+  SongAccuracy mAccuracy[7];
+  SongFullCombo mFullCombo[7];
+  
+  u8 rev_footer;
+};
+
 // Campaign: Per-gig progress
 struct RBCampaignGigProgressPersistentData {
   Symbol mGigName; // not part of the class - part of the map
@@ -200,45 +230,14 @@ struct RBCampaignBandPersistentData {
   RBCampaignTourCashEarned mTourCashEarned[mTourCashEarned_length];
   Symbol mCityForNextTourChoice;
   // campaigns started on Rivals will always have nothing for mDeprecatedSongData
-  // (TODO: fix for saves brought forward, if such a thing exists...)
   u32 mDeprecatedSongData_length;
-  // SongPersistentData? mDeprecatedSongData[mDeprecatedSongData_length];
+  SongPersistentData mDeprecatedSongData[mDeprecatedSongData_length];
   u32 mSongsPlayed_length;
   u32 mSongsPlayed[mSongsPlayed_length];
   HxGuid mBandGuid;
   u32 mPatchesToRun_length;
   Symbol mPatchesToRun[mPatchesToRun_length];
   RBBTMBandPersistentData mBTMData;
-  
-  u8 rev_footer;
-};
-
-// Not actual classes/structures - ImHex doesn't support multi-dimensional arrays
-struct SongScores {
-  u32 mScore[4]; // per-difficulty
-};
-struct SongStars {
-  u8 mStars[4];
-};
-struct SongAccuracy {
-  u8 mAccuracy[4];
-};
-struct SongFullCombo {
-  u8 mFullCombo[4];
-};
-
-// High scores: General data
-struct SongPersistentData {
-  u32 song_id;
-  RevisionStream rev; // Revision 0x8
-  
-  u32 mSongID;
-  u32 mVersion;
-  DateTime mLastPlayed;
-  SongScores mScore[7]; // per-instrument
-  SongStars mStars[7];
-  SongAccuracy mAccuracy[7];
-  SongFullCombo mFullCombo[7];
   
   u8 rev_footer;
 };
