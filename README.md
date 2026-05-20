@@ -16,3 +16,10 @@ file formats I've reverse engineered.
 * [Rock Band 4](savegames/rb4.hexpat)
     * Requires decryption before this can be read (see [davesave](https://github.com/InvoxiPlayGames/davesave))
     * References: **2015-09-01 Rock Band 4 map**, 2017-03-09 Rock Band VR PDB, original research and development
+
+### Other
+
+* [Nokia DLOAD .cert](other/nokia_dload_cert.hexpat)
+* [Qualcomm .mbn Bootloader](other/qualcomm_mbn_osbl_hdr.hexpat)
+    * Only used Lumia Windows Phone 7 devices as reference.
+* [Windows Phone 7 "Device Side Manifest" (.DSM)](other/wp7_dsm.hexpat)
